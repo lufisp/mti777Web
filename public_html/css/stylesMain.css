@@ -14,4 +14,23 @@ and open the template in the editor.
 .mti777_hover {
   cursor: pointer; }
 
+.mti777_dashBoardContainers {
+  min-height: 300px;
+  max-height: 300px;
+  margin: 10px;
+  background-color: #9190b2;
+  padding: 20px;
+  border-radius: 20px;
+  overflow: hidden; }
+
+.mti777_tableContainer {
+  max-height: 200px;
+  overflow: auto;
+  overflow-y: scroll; }
+
+.mti777_tableLabel {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px; }
+
 /*# sourceMappingURL=stylesMain.css.map */
