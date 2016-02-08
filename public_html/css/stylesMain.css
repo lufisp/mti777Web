@@ -12,16 +12,15 @@ and open the template in the editor.
   background-color: #333; }
 
 .mti777_dashBoardContainers {
-  min-height: 300px;
-  max-height: 300px;
+  min-height: 400px;
+  max-height: 400px;
   margin: 10px;
   background-color: #9190b2;
   padding: 20px;
-  border-radius: 20px;
-  overflow: hidden; }
+  border-radius: 20px; }
 
 .mti777_tableContainer {
-  max-height: 200px;
+  max-height: 250px;
   overflow: auto;
   overflow-y: scroll; }
 
@@ -29,5 +28,37 @@ and open the template in the editor.
   color: white;
   font-size: 18px;
   margin-bottom: 10px; }
+
+.wrap {
+  width: 100%; }
+
+.lookup {
+  margin: 1em 0;
+  padding: 1em;
+  background-color: #A1D9FF;
+  border-radius: 0.5em;
+  text-align: left; }
+
+.matches {
+  margin: 0.5em 0 0;
+  padding: 0; }
+
+.matches > .match {
+  margin: 0;
+  padding: 0.5em;
+  background-color: white;
+  list-style: none; }
+
+.matches > .match:first-child {
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em; }
+
+.matches > .match:last-child {
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em; }
+
+.match > .highlight {
+  background-color: #70CDFF;
+  border-radius: 0.2em; }
 
 /*# sourceMappingURL=stylesMain.css.map */

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery.data demo</title>
+        <style>
+            div {
+                color: blue;
+            }
+            span {
+                color: red;
+            }
+        </style>
+        <script src="/mti777_web/js/jquery-2.2.0.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <div>
+            The values stored were
+            <span></span>
+            and
+            <span></span>
+        </div>
+
+        <script>
+            var div = $("div")[ 0 ];
+            jQuery.data(div, "test", {"id" : 33});
+            $("span:first").text(jQuery.data(div, "test").id);
+            
+        </script>
+
+    </body>
+</html>

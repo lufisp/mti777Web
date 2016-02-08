@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 $basic-color: #333;
 $backgroundTableColor: rgb(145,144,178);
-$dashBoarderContainerSize: 300px;
+$dashBoarderContainerSize: 400px;
 $tableLabelColor: rgb(255,255,255);
 
 .mti777_headerLine{
@@ -28,11 +28,10 @@ $tableLabelColor: rgb(255,255,255);
     background-color: $backgroundTableColor; 
     padding: 20px;
     border-radius: 20px;    
-    overflow: hidden;
 }
 
 .mti777_tableContainer{
-   max-height: $dashBoarderContainerSize - 100px;
+   max-height: $dashBoarderContainerSize - 150px;
    overflow: auto;
    overflow-y: scroll;
 }
@@ -45,5 +44,47 @@ $tableLabelColor: rgb(255,255,255);
     color: $tableLabelColor;
     font-size: 18px;
     margin-bottom: 10px;
+}
+
+
+.wrap {
+  width: 100%;
+  //text-align: center;
+}
+
+.lookup {
+  margin: 1em 0;
+  padding: 1em;
+  background-color: #A1D9FF;
+  border-radius: 0.5em;
+  //display: inline-block;
+  text-align: left;
+}
+
+.matches {
+  margin: 0.5em 0 0;
+  padding: 0;
+}
+
+.matches > .match {
+  margin: 0;
+  padding: 0.5em;
+  background-color: white;
+  list-style: none;
+}
+
+.matches > .match:first-child {
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.matches > .match:last-child {
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+
+.match > .highlight {
+  background-color: #70CDFF;
+  border-radius: 0.2em;
 }
 
