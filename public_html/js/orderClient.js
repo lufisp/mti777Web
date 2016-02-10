@@ -26,21 +26,37 @@ function tableRoomClick(tableRoom) {
                 html += " <td>";
                 html += data[tableIndex].openFlag;
                 html += " </td>";
-                html += " <td>";                
-                html += "<span onclick=orderClick(" + JSON.stringify(data[tableIndex]) + ") class='glyphicon glyphicon-list-alt'></span>";                
+                html += " <td>";
+                html += "<span onclick=orderClick(" + JSON.stringify(data[tableIndex]) + ") class='glyphicon glyphicon-list-alt'></span>";
                 html += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
-                html += "<span onclick=orderRemove(" + JSON.stringify(data[tableIndex]) + ") class='glyphicon glyphicon-remove'></span>";                
+                html += "<span onclick=orderRemove(" + JSON.stringify(data[tableIndex]) + ") class='glyphicon glyphicon-remove'></span>";
                 html += " </td>";
                 html += " </tr>";
             }
             //recover the html salved in the document load.
             $("#divOrder_table").html(divOrderTable_html).append(html);
             htmlBtn = "<div>";
-            htmlBtn += "<button type='button' class='btn btn-default' onclick=addOrder(" + JSON.stringify(tableRoom) + ")>";
+            htmlBtn += "<button id='btnAddOrder' type='button' class='btn btn-default' onclick=addOrder(" + JSON.stringify(tableRoom) + ")>";
             htmlBtn += "<span class='glyphicon glyphicon-plus'></span>";
             htmlBtn += "Add";
-            htmlBtn += "</button></div>";
+            htmlBtn += "</button>";
+            htmlBtn += "<label id='totalTable'></label>";
+            htmlBtn += "</div>"
             $("#divOrder").append(htmlBtn);
+            updateTotalMesa(id);
+        }
+    });
+}
+
+function updateTotalMesa(mesaId) {
+    jQuery.ajax({
+        type: 'GET',
+        url: 'http://localhost:8080/table/getTotal/' + mesaId,
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+            $("#totalTable").empty();
+            $("#totalTable").append("Total: ");
+            $("#totalTable").append(data.value);
         }
     });
 }
@@ -77,17 +93,7 @@ function addOrder(tableRoom) {
 }
 
 function orderRemove(order) {
-    console.log(order.idOrder);
-    /*var json = {
-        tableRoom: {
-            idtable: idTableRoom
-        },
-        shift: {
-            idshift: shiftId
-        },
-        openFlag: true,
-        creationDate: '1454263234000'
-    };*/
+    console.log(order.idOrder);    
     jQuery.ajax({
         headers: {
             'Accept': 'application/json',

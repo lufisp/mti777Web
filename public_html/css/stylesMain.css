@@ -29,6 +29,10 @@ and open the template in the editor.
   font-size: 18px;
   margin-bottom: 10px; }
 
+#totalTable {
+  font-size: 20px;
+  margin-left: 30%; }
+
 .wrap {
   width: 100%; }
 

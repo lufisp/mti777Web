@@ -34,9 +34,9 @@ function orderClick(order) {
                 html = html + data[tableIndex].quantity * data[tableIndex].itemMenuDet.prix;
                 html = html + " </td>"
                 html = html + " <td>"
-                html = html + "<span class='glyphicon glyphicon-plus-sign'></span>&nbsp";
-                html = html + "<span class='glyphicon glyphicon-minus-sign'></span>&nbsp";
-                html = html + "<span class='glyphicon glyphicon-remove'></span>";
+                html = html + "<span onclick=plusItem(" + JSON.stringify(data[tableIndex]) + ") class='glyphicon glyphicon-plus-sign'></span>&nbsp";
+                html = html + "<span onclick=minusItem(" + JSON.stringify(data[tableIndex]) + ") class='glyphicon glyphicon-minus-sign'></span>&nbsp";
+                html = html + "<span onclick=removeItem(" + JSON.stringify(data[tableIndex]) + ") class='glyphicon glyphicon-remove'></span>";
                 html = html + " </td>"
                 html = html + "</tr>"
 
@@ -100,12 +100,66 @@ function addItemMenuDet(order) {
             data: "{}",
             success: function (data, textStatus, jqXHR) {
                 orderClick(order);
+                updateTotalMesa(order.tableRoom.idtable);
             }
         });
 
     }
 
     console.log("Id do detalhe do item: " + idItemMenuDet);
-
 }
 
+function plusItem(orderItems) {
+    orderItems.quantity = orderItems.quantity + 1;
+    jQuery.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: 'put',
+        url: 'http://localhost:8080/orderItems/',
+        data: JSON.stringify(orderItems),
+        success: function (data, textStatus, jqXHR) {
+            orderClick(orderItems.orderClient);
+            updateTotalMesa(orderItems.orderClient.tableRoom.idtable);
+        }
+    });
+}
+
+function minusItem(orderItems) {
+    orderItems.quantity = orderItems.quantity - 1;
+    if (orderItems.quantity == 0)
+        removeItem(orderItems);
+    else {
+        jQuery.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'put',
+            url: 'http://localhost:8080/orderItems/',
+            data: JSON.stringify(orderItems),
+            success: function (data, textStatus, jqXHR) {
+                orderClick(orderItems.orderClient);
+                updateTotalMesa(orderItems.orderClient.tableRoom.idtable);
+            }
+        });
+    }
+}
+
+function removeItem(orderItems) {
+    orderItems.quantity = orderItems.quantity - 1;
+    jQuery.ajax({
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        type: 'delete',
+        url: 'http://localhost:8080/orderItems/' + orderItems.idorderItems,
+        data: JSON.stringify(orderItems),
+        success: function (data, textStatus, jqXHR) {
+            orderClick(orderItems.orderClient);
+            updateTotalMesa(orderItems.orderClient.tableRoom.idtable);
+        }
+    });
+}
