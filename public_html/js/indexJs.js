@@ -7,6 +7,7 @@
 var shiftId = 2;
 var listProducts = [];
 
+
 var divOrderTable_html;
 $(document).ready(function () {
     loadTableRoom();
@@ -18,6 +19,7 @@ $(document).ready(function () {
     divOrder_html = $("#divOrder").html();
     divItemsOrder_html = $("#divItemsOrder").html();
     divItemsTable_html = $("#divItems_table").html();
+    divPaymentTable_html = $("#divPgto_table").html();
 
 });
 

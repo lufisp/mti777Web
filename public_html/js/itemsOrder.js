@@ -5,8 +5,10 @@
  */
 
 function orderClick(order) {
+    chargePayment(order);
     id = order.idOrder;
     $("#divItemsOrder").css('visibility', 'visible');
+    $("#pgto").css('visibility', 'visible');
     jQuery.ajax({
         type: 'GET',
         url: 'http://localhost:8080/orderItems/orderClient/' + id,
@@ -43,6 +45,7 @@ function orderClick(order) {
             }
             //recover the html salved in the document load.
             $("#divItemsOrder").html(divItemsOrder_html);
+            $("#orderItemsLabel").append(" " + order.idOrder);
             $("#divItems_table").append(html);
             htmlBtn = "<div class='wrap'>";
             htmlBtn += "<div class='lookup'>";
@@ -60,9 +63,23 @@ function orderClick(order) {
                 $('#inputProducts').attr('data-value', "");
                 $('#inputProducts').autocomplete(listProducts, render($('.matches')));
             }
+            updateTotalOrder(order);
         }
     });
     console.log(id);
+}
+
+function updateTotalOrder(order){
+    jQuery.ajax({
+        type: 'GET',
+        url: 'http://localhost:8080/orderClient/getTotal/' + order.idOrder,
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+            $("#totalOrder").empty();
+            $("#totalOrder").append("Total: ");
+            $("#totalOrder").append(data.value);
+        }
+    });
 }
 
 function chargeListProducts() {

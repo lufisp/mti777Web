@@ -8,9 +8,13 @@ function tableRoomClick(tableRoom) {
     id = tableRoom.idtable;
     tableName = tableRoom.name;
     $("#divOrder").html(divOrder_html);
-    $("#divOrder").css('visibility', 'visible');
+    $("#divOrder").css('visibility', 'visible');    
     $("#divItemsOrder").css('visibility', 'hidden');
+    $("#pgto").css('visibility', 'hidden');
     $("#mti777_orderLabelId").html("Orders  - " + tableName);
+    
+        
+    
 
     jQuery.ajax({
         type: 'GET',
@@ -39,8 +43,7 @@ function tableRoomClick(tableRoom) {
             htmlBtn += "<button id='btnAddOrder' type='button' class='btn btn-default' onclick=addOrder(" + JSON.stringify(tableRoom) + ")>";
             htmlBtn += "<span class='glyphicon glyphicon-plus'></span>";
             htmlBtn += "Add";
-            htmlBtn += "</button>";
-            htmlBtn += "<label id='totalTable'></label>";
+            htmlBtn += "</button>";            
             htmlBtn += "</div>"
             $("#divOrder").append(htmlBtn);
             updateTotalMesa(id);
@@ -65,7 +68,7 @@ function updateTotalMesa(mesaId) {
 function addOrder(tableRoom) {
     idTableRoom = tableRoom.idtable;
     tableName = tableRoom.name;
-    console.log(idTableRoom + ", " + tableName);
+    //console.log(idTableRoom + ", " + tableName);
     var json = {
         tableRoom: {
             idtable: idTableRoom
@@ -85,15 +88,14 @@ function addOrder(tableRoom) {
         url: 'http://localhost:8080/orderClient/',
         dataType: 'json',
         data: JSON.stringify(json),
-        success: function (data, textStatus, jqXHR) {
-            var html = "";
+        success: function (data, textStatus, jqXHR) {            
             tableRoomClick(tableRoom);
         }
     });
 }
 
 function orderRemove(order) {
-    console.log(order.idOrder);    
+    //console.log(order.idOrder);    
     jQuery.ajax({
         headers: {
             'Accept': 'application/json',
@@ -101,8 +103,7 @@ function orderRemove(order) {
         },
         type: 'delete',
         url: 'http://localhost:8080/orderClient/' + order.idOrder,
-        success: function (data, textStatus, jqXHR) {
-            var html = "";
+        success: function (data, textStatus, jqXHR) {         
             tableRoomClick(order.tableRoom);
         }
     });
