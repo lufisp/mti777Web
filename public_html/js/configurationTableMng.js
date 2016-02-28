@@ -15,6 +15,11 @@ $(document).ready(function () {
     $('#tableUpdateBtn').click(function () {
         tableUpdate();
     });
+    
+    $("#btnAddTable").click(function () {
+        addTable();
+    });
+    
 
     divTableMng_table_html = $("#divTableMng_table").html();
     for (var i = 1; i < 13; i++) {
@@ -35,11 +40,7 @@ $(document).ready(function () {
 });
 
 function chargeTables() {
-    //console.log("Order Id ->: " + orderClient.idOrder);
-    $("#btnAddTable").unbind('click');
-    $("#btnAddTable").click(function () {
-        addTable();
-    });
+   
     jQuery.ajax({
         type: 'GET',
         url: 'http://localhost:8080/table/',

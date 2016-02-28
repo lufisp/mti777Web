@@ -4,13 +4,11 @@
  * and open the template in the editor.
  */
 
-var shiftId = 2;
+var shiftId;
 var listProducts = [];
-
-
 var divOrderTable_html;
 $(document).ready(function () {
-    loadTableRoom();
+    
     $("#divOrder").css('visibility', 'hidden');
     $("#divItemsOrder").css('visibility', 'hidden');
     $("#pgto").css('visibility', 'hidden');
@@ -20,6 +18,19 @@ $(document).ready(function () {
     divItemsOrder_html = $("#divItemsOrder").html();
     divItemsTable_html = $("#divItems_table").html();
     divPaymentTable_html = $("#divPgto_table").html();
+    
+    jQuery.ajax({
+        type: 'GET',
+        url: 'http://localhost:8080/shift/active/',
+        dataType: 'json',
+        success: function (data, textStatus, jqXHR) {
+            shiftId = data.idshift;
+            loadTableRoom();
+            
+        }
+    });
+    
+    
 
 });
 

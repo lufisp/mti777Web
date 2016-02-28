@@ -18,7 +18,7 @@ function tableRoomClick(tableRoom) {
 
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/orderClient/table/' + id,
+        url: 'http://localhost:8080/orderClient/table/' + id + '/shift/' + shiftId,
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             var html = "";
@@ -54,7 +54,7 @@ function tableRoomClick(tableRoom) {
 function updateTotalMesa(mesaId) {
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/table/getTotal/' + mesaId,
+        url: 'http://localhost:8080/table/getTotal/' + mesaId + '/shiftId/' + shiftId,
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             $("#totalTable").empty();

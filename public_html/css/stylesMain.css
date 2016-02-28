@@ -121,4 +121,16 @@ and open the template in the editor.
   .mti777_close hover {
     background: #00d9ff; }
 
+.mti777_node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px; }
+.mti777_node text {
+  font: 12px sans-serif; }
+
+.mti777_link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px; }
+
 /*# sourceMappingURL=stylesMain.css.map */
