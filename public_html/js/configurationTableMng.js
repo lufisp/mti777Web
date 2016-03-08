@@ -137,7 +137,7 @@ function tableUpdate() {
         places: tableSizeEdit,
         availableFlag: tableSelected.availableFlag
     };
-    console.log(json);
+    //console.log(json);
     jQuery.ajax({
         headers: {
             'Accept': 'application/json',

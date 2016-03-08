@@ -13,6 +13,14 @@ $dashBoarderContainerSize: 400px;
 $tableLabelColor: rgb(255,255,255);
 $selectedNavColor: rgb(145,144,178);
 
+div.col-md-6{
+    padding: 0px;
+}
+div.col-md-12{
+    padding: 0px;
+}
+
+
 .mti777_headerLine{
     min-height: 50px;
     background-color: $basic-color;
@@ -30,7 +38,7 @@ $selectedNavColor: rgb(145,144,178);
 .mti777_dashBoardContainers{
     min-height: $dashBoarderContainerSize;
     max-height: $dashBoarderContainerSize;
-    margin: 10px;
+    margin: 5px;
     background-color: $backgroundTableColor; 
     padding: 20px;
     border-radius: 20px;    
@@ -155,21 +163,3 @@ $selectedNavColor: rgb(145,144,178);
     box-shadow: 1px 1px 3px #000;
     hover{background: #00d9ff;}
 }
-
-.mti777_node{ 
-    circle {
-        fill: #fff;
-        stroke: steelblue;
-        stroke-width: 3px;
-    }
-    text { font: 12px sans-serif; }
-}
-
-.mti777_link {
-    fill: none;
-    stroke: #ccc;
-    stroke-width: 2px;
-}
-
-
-

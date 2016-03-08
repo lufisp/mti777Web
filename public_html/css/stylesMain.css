@@ -7,6 +7,12 @@ and open the template in the editor.
     Created on : 31-Jan-2016, 5:04:23 PM
     Author     : fernando
 */
+div.col-md-6 {
+  padding: 0px; }
+
+div.col-md-12 {
+  padding: 0px; }
+
 .mti777_headerLine {
   min-height: 50px;
   background-color: #333; }
@@ -18,7 +24,7 @@ and open the template in the editor.
 .mti777_dashBoardContainers {
   min-height: 400px;
   max-height: 400px;
-  margin: 10px;
+  margin: 5px;
   background-color: #9190b2;
   padding: 20px;
   border-radius: 20px; }
@@ -120,17 +126,5 @@ and open the template in the editor.
   box-shadow: 1px 1px 3px #000; }
   .mti777_close hover {
     background: #00d9ff; }
-
-.mti777_node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 3px; }
-.mti777_node text {
-  font: 12px sans-serif; }
-
-.mti777_link {
-  fill: none;
-  stroke: #ccc;
-  stroke-width: 2px; }
 
 /*# sourceMappingURL=stylesMain.css.map */

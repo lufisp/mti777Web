@@ -10,6 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/mti777_web/css/stylesMain.css" rel="stylesheet" type="text/css"/>
+        <link href="/mti777_web/css/treeCategory.css" rel="stylesheet" type="text/css"/>
         <link href="/mti777_web/bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
@@ -21,6 +22,7 @@ and open the template in the editor.
             <ul class="nav nav-pills nav-stacked">                    
                 <li role="presentation"><a href="../index.html">Manager</a></li>
                 <li class="mti777_navSelected" role="presentation"><a href="#">Configuration</a></li>
+                <li role="presentation"><a href="menuConfiguration.html">Menu</a></li>
             </ul>
         </div>
         <div class="col-md-10">
@@ -77,19 +79,10 @@ and open the template in the editor.
             </div>
             <div class="col-md-6">
 
-                <div id="divMenuCatMng" class="mti777_dashBoardContainers">
-                    
 
-                </div>                
-
-
-
-                <div id="divMenuItemMng" class="mti777_dashBoardContainers">
-
-                </div>                
-
-            </div> 
+            </div>
         </div>
+
         <div class="col-md-12"> TODO write content</div>
 
         <!-- Modal windown for the edit tableRoom -->
@@ -102,7 +95,7 @@ and open the template in the editor.
                     <label>Table size:</label>
                     <select id="tableSizeEdit" name="tableSize" ></select>
                 </div>
-                <div clas='row'>
+                <div clas='row'>                    
                     <button id='tableUpdateBtn' type="button" class="btn btn-primary">Save</button>
                 </div>
             </div>
@@ -112,5 +105,7 @@ and open the template in the editor.
         <script src="/mti777_web/js/configurationTableMng.js" type="text/javascript"></script>
         <script src="/mti777_web/js/configurationShiftMng.js" type="text/javascript"></script>
         <script src="/mti777_web/js/pgto.js" type="text/javascript"></script>
+        <script src="/mti777_web/js/d3.min.js" type="text/javascript"></script>
+
     </body>
 </html>
