@@ -33,6 +33,8 @@ function tableRoomClick(tableRoom) {
                 html += " <td>";
                 html += "<span onclick=orderClick(" + JSON.stringify(data[tableIndex]) + ") class='glyphicon glyphicon-list-alt'></span>";
                 html += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
+                html += "<span onclick=orderClose(" + JSON.stringify(data[tableIndex]) + ") class='glyphicon glyphicon-check'></span>";
+                html += "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp";
                 html += "<span onclick=orderRemove(" + JSON.stringify(data[tableIndex]) + ") class='glyphicon glyphicon-remove'></span>";
                 html += " </td>";
                 html += " </tr>";
@@ -109,4 +111,20 @@ function orderRemove(order) {
     });
 }
 
+function orderClose(order){
+    var json = "{}";
+    jQuery.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: 'put',
+            url: 'http://localhost:8080/orderClient/closeOrder/' + order.idOrder,
+            data: JSON.stringify(json),
+            success: function (data, textStatus, jqXHR) {
+               tableRoomClick(order.tableRoom);           
+            }
+        });
+    
+}
 

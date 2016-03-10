@@ -238,7 +238,7 @@ function setup_editCategory(d) {
             data: JSON.stringify(json),
             success: function (data, textStatus, jqXHR) {
                 d.name = nameCategory;
-                update(d.parent);
+                click(d.parent)               
             }
         });
     });
@@ -259,7 +259,7 @@ function setup_removeCategory(d) {
             type: 'delete',
             url: 'http://localhost:8080/itemCategory/' + d.id,
             success: function (data, textStatus, jqXHR) {
-                //selectedCategory(selectedCategoryId, selectedNameCategory);
+                click(d.parent)
             }
         });
     });
@@ -288,7 +288,7 @@ function setup_addCategory(d) {
             dataType: 'json',
             data: JSON.stringify(json),
             success: function (data, textStatus, jqXHR) {
-                //tentar adicionar um nó filho
+                click(d.parent)
             }
         });
     });

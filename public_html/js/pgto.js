@@ -32,6 +32,7 @@ $(document).ready(function () {
 
 function chargePayment(orderClient) {
     //console.log("Order Id ->: " + orderClient.idOrder);
+    var paymentTotal = 0;
     $("#btnAddPgto").unbind('click');
     $("#btnAddPgto").click(function () {
         addPgto(orderClient);
@@ -54,6 +55,7 @@ function chargePayment(orderClient) {
                 html += data[tableIndex].orderClient.idOrder;
                 html += " </td>";
                 html += " <td>";
+                paymentTotal += data[tableIndex].total;
                 html += data[tableIndex].total;
                 html += " </td>";
                 html += " <td>";
@@ -63,6 +65,7 @@ function chargePayment(orderClient) {
             }
             $("#divPgto_table").html(divPaymentTable_html);
             $("#divPgto_table").append(html);
+            $("#totalPayment").empty().append("Total: " + paymentTotal);
 
         }
     });

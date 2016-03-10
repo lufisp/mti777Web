@@ -52,7 +52,7 @@ function addShift() {
 
     var json = {
         name: shiftName,
-        places: tableSize
+        active: 0
     };
 
     //console.log(json);

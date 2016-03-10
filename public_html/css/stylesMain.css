@@ -49,6 +49,11 @@ div.col-md-12 {
   margin-right: 10%;
   float: right; }
 
+#totalPayment {
+  font-size: 20px;
+  margin-right: 10%;
+  float: right; }
+
 .wrap {
   width: 100%; }
 
