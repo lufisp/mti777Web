@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 
+
 var tableSelected = "";
+
 
 $(document).ready(function () {
     $('#closeModal').click(function () {
@@ -43,7 +45,7 @@ function chargeTables() {
    
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/table/',
+        url: host + '/table/',
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             var html = "";
@@ -92,7 +94,7 @@ function addTable() {
             'Content-Type': 'application/json'
         },
         type: 'post',
-        url: 'http://localhost:8080/table/',
+        url: host + '/table/',
         dataType: 'json',
         data: JSON.stringify(json),
         success: function (data, textStatus, jqXHR) {
@@ -110,7 +112,7 @@ function tableRemove(table) {
             'Content-Type': 'application/json'
         },
         type: 'delete',
-        url: 'http://localhost:8080/table/' + table.idtable,
+        url: host + '/table/' + table.idtable,
         success: function (data, textStatus, jqXHR) {
             chargeTables();
         }
@@ -144,7 +146,7 @@ function tableUpdate() {
             'Content-Type': 'application/json'
         },
         type: 'put',
-        url: 'http://localhost:8080/table/' + tableSelected.idtable,
+        url: host + '/table/' + tableSelected.idtable,
         data: JSON.stringify(json),
         success: function (data, textStatus, jqXHR) {
             chargeTables();

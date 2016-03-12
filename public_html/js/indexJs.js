@@ -21,7 +21,7 @@ $(document).ready(function () {
     
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/shift/active/',
+        url: host + '/shift/active/',
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             shiftId = data.idshift;
@@ -38,7 +38,7 @@ function loadTableRoom() {
 
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/table/',
+        url: host + '/table/',
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             var html = "";

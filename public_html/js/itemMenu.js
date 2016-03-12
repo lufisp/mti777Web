@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 var divMenuMng_table_html;
 var divMenuDet_table_html;
 var selectedItemMenu;
@@ -41,7 +42,7 @@ function selectedCategory(idCategory, nameCategory) {
 
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/itemMenu/itemCategory/' + idCategory,
+        url: host + '/itemMenu/itemCategory/' + idCategory,
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             var html = "";
@@ -75,7 +76,7 @@ function menuClick(itemMenu) {
     $("#mti777_itemMenuDet_label").empty().append(itemMenu.name);
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/itemMenuDet/lastUpdated/' + itemMenu.iditemMenu,
+        url: host + '/itemMenuDet/lastUpdated/' + itemMenu.iditemMenu,
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             var html = "";
@@ -119,7 +120,7 @@ function addMenuItemDet() {
             'Content-Type': 'application/json'
         },
         type: 'post',
-        url: 'http://localhost:8080/itemMenuDet/',
+        url: host + '/itemMenuDet/',
         dataType: 'json',
         data: JSON.stringify(json),
         success: function (data, textStatus, jqXHR) {
@@ -145,7 +146,7 @@ function addMenuItem() {
             'Content-Type': 'application/json'
         },
         type: 'post',
-        url: 'http://localhost:8080/itemMenu/',
+        url: host + '/itemMenu/',
         dataType: 'json',
         data: JSON.stringify(json),
         success: function (data, textStatus, jqXHR) {
@@ -161,7 +162,7 @@ function itemMenuRemove(itemMenu) {
             'Content-Type': 'application/json'
         },
         type: 'delete',
-        url: 'http://localhost:8080/itemMenu/' + itemMenu.iditemMenu,
+        url: host + '/itemMenu/' + itemMenu.iditemMenu,
         success: function (data, textStatus, jqXHR) {
             selectedCategory(selectedCategoryId, selectedNameCategory);
         }
@@ -197,7 +198,7 @@ function itemMenuUpdate() {
             'Content-Type': 'application/json'
         },
         type: 'put',
-        url: 'http://localhost:8080/itemMenu/' + selectedItemMenu.iditemMenu,
+        url: host + '/itemMenu/' + selectedItemMenu.iditemMenu,
         data: JSON.stringify(json),
         success: function (data, textStatus, jqXHR) {
             selectedCategory(selectedCategoryId, selectedNameCategory);

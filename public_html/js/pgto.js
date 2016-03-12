@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 
+
+
 var promiseTypePayment = new Promise(function (resolve, reject) {
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/paymentType/',
+        url: host + '/paymentType/',
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             resolve(data);
@@ -39,7 +41,7 @@ function chargePayment(orderClient) {
     });
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/payment/orderClient/' + orderClient.idOrder,
+        url: host + '/payment/orderClient/' + orderClient.idOrder,
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             var html = "";
@@ -95,7 +97,7 @@ function addPgto(orderClient) {
             'Content-Type': 'application/json'
         },
         type: 'post',
-        url: 'http://localhost:8080/payment/',
+        url: host + '/payment/',
         dataType: 'json',
         data: JSON.stringify(json),
         success: function (data, textStatus, jqXHR) {
@@ -113,7 +115,7 @@ function paymentRemove(payment) {
             'Content-Type': 'application/json'
         },
         type: 'delete',
-        url: 'http://localhost:8080/payment/' + payment.idpayment,
+        url: host + '/payment/' + payment.idpayment,
         success: function (data, textStatus, jqXHR) {
             chargePayment(payment.orderClient);
         }

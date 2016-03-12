@@ -7,6 +7,9 @@ and open the template in the editor.
     Created on : 31-Jan-2016, 5:04:23 PM
     Author     : fernando
 */
+body {
+  background-color: #DDD; }
+
 div.col-md-6 {
   padding: 0px; }
 
@@ -15,6 +18,10 @@ div.col-md-12 {
 
 .mti777_headerLine {
   min-height: 50px;
+  background-color: #333; }
+
+.mti777_bottomLine {
+  min-height: 100px !important;
   background-color: #333; }
 
 .mti777_navSelected {
@@ -60,7 +67,7 @@ div.col-md-12 {
 .lookup {
   margin: 1em 0;
   padding: 1em;
-  background-color: #A1D9FF;
+  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 0.5em;
   text-align: left; }
 

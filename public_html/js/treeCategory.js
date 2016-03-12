@@ -5,6 +5,8 @@
  * http://www.d3noob.org/2014/01/tree-diagrams-in-d3js_11.html
  * 
  */
+
+
 var margin = {top: 20, right: 120, bottom: 20, left: 50},
 width = 500,
         height = 300;
@@ -32,7 +34,7 @@ $(document).ready(function () {
 
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/itemCategory/getTreeJson/',
+        url: host + '/itemCategory/getTreeJson/',
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             root = data[0];
@@ -234,7 +236,7 @@ function setup_editCategory(d) {
                 'Content-Type': 'application/json'
             },
             type: 'put',
-            url: 'http://localhost:8080/itemCategory/' + d.id,
+            url: host + '/itemCategory/' + d.id,
             data: JSON.stringify(json),
             success: function (data, textStatus, jqXHR) {
                 d.name = nameCategory;
@@ -257,7 +259,7 @@ function setup_removeCategory(d) {
                 'Content-Type': 'application/json'
             },
             type: 'delete',
-            url: 'http://localhost:8080/itemCategory/' + d.id,
+            url: host + '/itemCategory/' + d.id,
             success: function (data, textStatus, jqXHR) {
                 click(d.parent)
             }
@@ -284,7 +286,7 @@ function setup_addCategory(d) {
                 'Content-Type': 'application/json'
             },
             type: 'post',
-            url: 'http://localhost:8080/itemCategory/',
+            url: host + '/itemCategory/',
             dataType: 'json',
             data: JSON.stringify(json),
             success: function (data, textStatus, jqXHR) {

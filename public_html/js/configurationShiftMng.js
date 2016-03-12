@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 var divShiftMng_table;
 $(document).ready(function () {
     divShiftMng_table_html = $("#divShiftMng_table").html();
@@ -18,7 +19,7 @@ function chargeShift() {
     
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/shift/',
+        url: host + '/shift/',
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             var html = "";
@@ -63,7 +64,7 @@ function addShift() {
             'Content-Type': 'application/json'
         },
         type: 'post',
-        url: 'http://localhost:8080/shift/',
+        url: host + '/shift/',
         dataType: 'json',
         data: JSON.stringify(json),
         success: function (data, textStatus, jqXHR) {
@@ -92,7 +93,7 @@ function activateShift(shift){
             'Content-Type': 'application/json'
         },
         type: 'put',
-        url: 'http://localhost:8080/shift/activate/' + shift.idshift,
+        url: host + '/shift/activate/' + shift.idshift,
         data: JSON.stringify(shift),
         success: function (data, textStatus, jqXHR) {
             chargeShift();

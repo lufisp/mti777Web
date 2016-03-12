@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+
+
 function tableRoomClick(tableRoom) {
     id = tableRoom.idtable;
     tableName = tableRoom.name;
@@ -18,7 +20,7 @@ function tableRoomClick(tableRoom) {
 
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/orderClient/table/' + id + '/shift/' + shiftId,
+        url: host + '/orderClient/table/' + id + '/shift/' + shiftId,
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             var html = "";
@@ -56,7 +58,7 @@ function tableRoomClick(tableRoom) {
 function updateTotalMesa(mesaId) {
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/table/getTotal/' + mesaId + '/shiftId/' + shiftId,
+        url: host + '/table/getTotal/' + mesaId + '/shiftId/' + shiftId,
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             $("#totalTable").empty();
@@ -87,7 +89,7 @@ function addOrder(tableRoom) {
             'Content-Type': 'application/json'
         },
         type: 'post',
-        url: 'http://localhost:8080/orderClient/',
+        url: host + '/orderClient/',
         dataType: 'json',
         data: JSON.stringify(json),
         success: function (data, textStatus, jqXHR) {            
@@ -104,7 +106,7 @@ function orderRemove(order) {
             'Content-Type': 'application/json'
         },
         type: 'delete',
-        url: 'http://localhost:8080/orderClient/' + order.idOrder,
+        url: host + '/orderClient/' + order.idOrder,
         success: function (data, textStatus, jqXHR) {         
             tableRoomClick(order.tableRoom);
         }
@@ -119,7 +121,7 @@ function orderClose(order){
                 'Content-Type': 'application/json'
             },
             type: 'put',
-            url: 'http://localhost:8080/orderClient/closeOrder/' + order.idOrder,
+            url: host + '/orderClient/closeOrder/' + order.idOrder,
             data: JSON.stringify(json),
             success: function (data, textStatus, jqXHR) {
                tableRoomClick(order.tableRoom);           

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+
 function orderClick(order) {
     chargePayment(order);
     id = order.idOrder;
@@ -11,7 +12,7 @@ function orderClick(order) {
     $("#pgto").css('visibility', 'visible');
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/orderItems/orderClient/' + id,
+        url: host +'/orderItems/orderClient/' + id,
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             var html = "";
@@ -72,7 +73,7 @@ function orderClick(order) {
 function updateTotalOrder(order){
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/orderClient/getTotal/' + order.idOrder,
+        url: host + '/orderClient/getTotal/' + order.idOrder,
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             $("#totalOrder").empty();
@@ -85,7 +86,7 @@ function updateTotalOrder(order){
 function chargeListProducts() {
     jQuery.ajax({
         type: 'GET',
-        url: 'http://localhost:8080/itemMenuDet/lastUpdated/',
+        url: host + '/itemMenuDet/lastUpdated/',
         dataType: 'json',
         success: function (data, textStatus, jqXHR) {
             var product;
@@ -112,7 +113,7 @@ function addItemMenuDet(order) {
                 'Content-Type': 'application/json'
             },
             type: 'post',
-            url: 'http://localhost:8080/orderItems/' + order.idOrder + '/' + idItemMenuDet,
+            url: host + '/orderItems/' + order.idOrder + '/' + idItemMenuDet,
             dataType: 'json',
             data: "{}",
             success: function (data, textStatus, jqXHR) {
@@ -134,7 +135,7 @@ function plusItem(orderItems) {
             'Content-Type': 'application/json'
         },
         type: 'put',
-        url: 'http://localhost:8080/orderItems/',
+        url: host + '/orderItems/',
         data: JSON.stringify(orderItems),
         success: function (data, textStatus, jqXHR) {
             orderClick(orderItems.orderClient);
@@ -154,7 +155,7 @@ function minusItem(orderItems) {
                 'Content-Type': 'application/json'
             },
             type: 'put',
-            url: 'http://localhost:8080/orderItems/',
+            url: host + '/orderItems/',
             data: JSON.stringify(orderItems),
             success: function (data, textStatus, jqXHR) {
                 orderClick(orderItems.orderClient);
@@ -172,7 +173,7 @@ function removeItem(orderItems) {
             'Content-Type': 'application/json'
         },
         type: 'delete',
-        url: 'http://localhost:8080/orderItems/' + orderItems.idorderItems,
+        url: host + '/orderItems/' + orderItems.idorderItems,
         data: JSON.stringify(orderItems),
         success: function (data, textStatus, jqXHR) {
             orderClick(orderItems.orderClient);
